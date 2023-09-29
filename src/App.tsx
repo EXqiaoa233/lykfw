@@ -1,23 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import thd from './resource/thd.png'
 import './App.css';
+import { NavLink, Route, Routes } from 'react-router-dom';
+import Sapphire from './features/sapphire';
+import Home from './features/home';
+import Error from './features/err';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="App" >
+      <header>
+        <nav>
+          <NavLink to='home' style={{margin:'10px'}}>首页</NavLink>
+          <NavLink to='sapphire'>蓝宝石</NavLink>
+        </nav>
+        <Routes>
+          <Route path='/home' element={<Home />} />
+          <Route path="/sapphire" element={<Sapphire />} />
+          <Route path="/*" element={<Error />} />
+        </Routes>
       </header>
     </div>
   );
