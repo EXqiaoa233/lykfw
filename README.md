@@ -44,3 +44,27 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Tips
+
+LYKFW使用 "pnpm" 作为包管理工具 npm install -g pnpm
+
+pnpm install 更新node_module
+
+pnpm add 添加插件
+
+pnpm start 进入开发模式
+
+## Git版本控制须知
+
+git branch xxx 创建名为XXX的分支，一般为功能名如feat/rank_list
+
+git checkout xxx 进入分支
+
+git pull origin master 同步代码
+
+git stash 暂存代码
+
+git commit 发起一次commit 内容以 行为(组件): 修改内容 如 feat(rank): create new component rank list
+
+git push origin xxx 如 git push origin feat/rank_list
