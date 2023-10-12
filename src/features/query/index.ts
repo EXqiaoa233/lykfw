@@ -1,6 +1,6 @@
 import { Query } from "./query";
 
-console.log("query");
+console.log("index");
 
 
 export default Query
