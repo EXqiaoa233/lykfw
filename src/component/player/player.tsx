@@ -6,6 +6,8 @@ import axios from "axios"
 import { IUser } from '../../types/iuser'
 import { Input, List } from '@arco-design/web-react';
 import { match } from '../../atom/match/match'
+import { log } from 'console'
+import { IconHeartFill } from '@arco-design/web-react/icon'
 const InputSearch = Input.Search
 
 export const Player = () => {
@@ -46,12 +48,18 @@ export const Player = () => {
         
         axios.post('http://lykfw.cc:7001/player', { 'sid': sid }).then(
             data => {
+                
                 console.log(data)
                 setU(data.data)
                 if (data.data.sid) {
                     setS(sid)
                     fetchMatch(sid)
                 }
+                console.log(`data是${data},data.data是${data.data},u是${u},s是${s}`);
+                console.log(data);
+                console.log(data.data);
+                console.log(u);
+                
 
             }
         ).catch(err => {
@@ -65,6 +73,7 @@ export const Player = () => {
                 style={{ width: 350 ,textAlign:'left'}}
                 size='small'
                 header={'硬实力'}
+                footer={'硬实力'}
                 dataSource={[
                     'sid: ' + u?.sid,
                     'lid: ' + u?.lid,
@@ -74,7 +83,13 @@ export const Player = () => {
                     'match records: ' + u?.matchRecords,
                     'last login: ' + u?.updateDate.toString(),
                 ]}
-                render={(item, index) => <List.Item key={index}>{item}</List.Item>}
+                render={(item, index) => <List.Item key={index}>
+                    <a href='https://steamcommunity.com/profiles/76561198072887807'>
+
+                    <img src={' http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=avatarmedium&steamids=76561198072887807'} style={{ width: 20}} alt='Item Image'></img><span>{item}</span>
+                    </a>
+
+                    </List.Item>}
             ></List>
         )
     }

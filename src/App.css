@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.App-fonts {
+  font-family: 'Roboto', sans-serif;
+  color: #84b9ca;
+  font-size: 26px;
+  text-decoration: none;
+}

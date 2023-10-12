@@ -11,8 +11,8 @@ function App() {
     <div className="App" >
       <header>
         <nav>
-          <NavLink to='home' style={{margin:'10px'}}>首页</NavLink>
-          <NavLink to='sapphire'>蓝宝石</NavLink>
+          <NavLink to='home' style={{ margin: '10px' }} className="App-fonts">首页</NavLink>
+          <NavLink to='sapphire' style={{ margin: '10px' }} className="App-fonts">蓝宝石</NavLink>
         </nav>
         <Routes>
           <Route path='/home' element={<Home />} />
