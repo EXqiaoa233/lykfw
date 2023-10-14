@@ -17,7 +17,7 @@ export const Match = () => {
     const MatchTable = (props: { matchs: IMatch[], sid: string }) => {
         let matchdata: IMatchData[] = []
         props.matchs.forEach(v => {
-            console.log(v.players.find(v => v.sid == props.sid))
+            // console.log(v.players.find(v => v.sid == props.sid))
             matchdata.push({
                 key: v.matchId,
                 matchId: v.matchId,

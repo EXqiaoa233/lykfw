@@ -14,6 +14,9 @@ export const Player = () => {
     const [s,setS] = useAtom(sid)
     const [u,setU] = useAtom(user)
     const [matchData,setMatch] = useAtom(match)
+    const [playername, setPlayername] = useState("");
+    const [avatar, setavatar] = useState("");
+   
 
     const Button = () => {
         return (
@@ -55,12 +58,25 @@ export const Player = () => {
                     setS(sid)
                     fetchMatch(sid)
                 }
-                console.log(`data是${data},data.data是${data.data},u是${u},s是${s}`);
-                console.log(data);
-                console.log(data.data);
-                console.log(u);
-                
-
+                u.sid = "1234"
+                const person = async () => {
+                    await axios.get(`http://lykfw.cc:7001/player/info/${data.data.lid}`).then(
+                        response => {
+                            console.log('打印成功');
+                            
+                            console.log(response.data.data.response.players[0]["personaname"])
+                            console.log(response.data.data.response.players[0])
+                            setPlayername(response.data.data.response.players[0]["personaname"])
+                            setavatar(response.data.data.response.players[0]["avatar"])
+                            console.log(avatar);
+                            
+                        }
+                    ).catch(err => {
+                        console.log('打印失败');
+                        console.log(err)
+                    })
+                }
+                person();
             }
         ).catch(err => {
             console.log(err)
@@ -68,31 +84,29 @@ export const Player = () => {
     }
 
     const playerInfo = () => {
-        return (
-            <List
-                style={{ width: 350 ,textAlign:'left'}}
-                size='small'
-                header={'硬实力'}
-                footer={'硬实力'}
-                dataSource={[
-                    'sid: ' + u?.sid,
-                    'lid: ' + u?.lid,
-                    'rank score: ' +  Math.ceil(Number(u?.rankScore)),
-                    'win rate: ' + Number((u?.winRate)?.toFixed(2))*100+'%',
-                    'win records: ' + u?.winRecords,
-                    'match records: ' + u?.matchRecords,
-                    'last login: ' + u?.updateDate.toString(),
-                ]}
-                render={(item, index) => <List.Item key={index}>
-                    <a href='https://steamcommunity.com/profiles/76561198072887807'>
-
-                    <img src={' http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=avatarmedium&steamids=76561198072887807'} style={{ width: 20}} alt='Item Image'></img><span>{item}</span>
-                    </a>
-
-                    </List.Item>}
-            ></List>
-        )
-    }
+    return (
+        <List
+            style={{ width: 350 ,textAlign:'left'}}
+            size='small'
+            header={'硬实力'}
+            dataSource={[
+                <div>
+                    <span>name: </span>
+                    <img src={avatar} alt="player-image" />
+                    <span>{playername}</span>
+                </div>,
+                'sid: ' + u?.sid,
+                'lid: ' + u?.lid,
+                'rank score: ' + Math.ceil(Number(u?.rankScore)),
+                'win rate: ' + Number((u?.winRate)?.toFixed(2))*100+'%',
+                'win records: ' + u?.winRecords,
+                'match records: ' + u?.matchRecords,
+                'last login: ' + u?.updateDate.toString(),
+            ]}
+            render={(item, index) => <List.Item key={index}>{item}</List.Item>}
+        ></List>
+    );
+};
 
 
     return (

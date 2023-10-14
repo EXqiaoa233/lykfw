@@ -16,6 +16,7 @@ export interface IMatchPlayer {
     selectedHero: string
     items: string[]
     damage: number
+    name: string
 }
 
 export interface IMatchData {
