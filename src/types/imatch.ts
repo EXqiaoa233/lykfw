@@ -25,7 +25,7 @@ export interface IMatchData {
     matchTime: string
     matchDate:Date
     iswinner: string
-    selectedHero: string | undefined
+    selectedHero: JSX.Element | undefined;
     kills: number | undefined
     deaths: number | undefined
     assist: number | undefined
