@@ -24,7 +24,6 @@ export const Match = () => {
                 matchTime: v.matchTime,
                 matchDate:v.createDate,
                 iswinner: v.winner == v.players.find(v => v.sid == props.sid)?.teamID ? '胜利' : '失败',
-                // selectedHero: getHeroByName(v.players.find(v => v.sid == props.sid)?.selectedHero),
                 selectedHero: <img style={{ width: 72, height: 40 }} title={getHeroByName(v.players.find(v => v.sid == props.sid)?.selectedHero)} src={require('../../resource/heroes/'+v.players.find(v => v.sid == props.sid)?.selectedHero+'.png')}/>,
                 kills: v.players.find(v => v.sid == props.sid)?.kills,
                 deaths: v.players.find(v => v.sid == props.sid)?.deaths,

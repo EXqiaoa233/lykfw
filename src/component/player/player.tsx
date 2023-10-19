@@ -58,7 +58,6 @@ export const Player = () => {
                     setS(sid)
                     fetchMatch(sid)
                 }
-                u.sid = "1234"
                 const person = async () => {
                     await axios.get(`http://lykfw.cc:7001/player/info/${data.data.lid}`).then(
                         response => {

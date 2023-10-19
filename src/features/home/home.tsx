@@ -6,8 +6,7 @@ export const Home = () => {
     return (
         <>
             <div>
-                {/* <img src={thd} /> */}
-                <img src="http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=avatarmedium&steamids=76561198072887807" alt="nothing" />
+                <img src={require("../../resource/thd.png")} style={{ marginTop: "50px", width: "100%", height: "100%" }} />
             </div>
         </>
     )
