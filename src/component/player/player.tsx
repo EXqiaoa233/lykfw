@@ -105,7 +105,7 @@ export const Player = () => {
             render={(item, index) => <List.Item key={index}>{item}</List.Item>}
         ></List>
     );
-};
+    }
 
 
     return (

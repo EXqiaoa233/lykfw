@@ -3,6 +3,7 @@ import thd from './resource/thd.png'
 import './App.css';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import Sapphire from './features/sapphire';
+import Query from './features/query';
 import Home from './features/home';
 import Error from './features/err';
 import axios from 'axios';
@@ -20,9 +21,11 @@ function App() {
         <nav>
           <NavLink to='home' style={{ margin: '10px' }} className="App-fonts">首页</NavLink>
           <NavLink to='sapphire' style={{ margin: '10px' }} className="App-fonts">蓝宝石</NavLink>
-          <button onClick={handleClick} style={{ width: '20px', height: '20px' }} className="App-fonts">测试</button>
+          {/* <button onClick={handleClick} style={{ width: '20px', height: '20px' }} className="App-fonts">测试</button> */}
+          <NavLink to='query' style={{ margin: '10px' }} className="App-fonts">测试按钮</NavLink>
         </nav>
         <Routes>
+          <Route path="/query" element={<Query />} />
           <Route path='/home' element={<Home />} />
           <Route path="/sapphire" element={<Sapphire />} />
           <Route path="/*" element={<Error />} />

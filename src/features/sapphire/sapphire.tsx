@@ -8,7 +8,7 @@ export const Sapphire = () => {
         <>
             <div>
                 <h1>
-                    <text>hh,sb</text>
+                    <span>hh,sb</span>
                 </h1>
                 <div >
                     <div style={{ position: "fixed" ,top:'100px',left:'0px'}}><Player /></div>
